@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio | My Social & Repos</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            flex: 1;
+        }
+
+        /* Header / Bio */
+        .bio-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .bio-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .bio-header p {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Menu mạng xã hội */
+        .social-menu {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .social-menu a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: white;
+            border-radius: 50%;
+            color: #334155;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .social-menu a:hover {
+            background: #2563eb;
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(37,99,235,0.2);
+        }
+
+        /* Tiêu đề Repository */
+        .repos-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .repos-title i {
+            color: #2563eb;
+        }
+
+        /* Grid repository */
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card repository */
+        .repo-card {
+            background: white;
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .repo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -8px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+
+        /* Logo */
+        .repo-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #f1f5f9, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #2563eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            flex-shrink: 0;
+        }
+
+        .repo-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* Thông tin repo */
+        .repo-info {
+            flex: 1;
+        }
+
+        .repo-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            color: #0f172a;
+        }
+
+        .repo-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Footer nhẹ */
+        .footer {
+            text-align: center;
+            padding: 2rem 0 0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive nhỏ */
+        @media (max-width: 480px) {
+            .bio-header h1 {
+                font-size: 2rem;
+            }
+            .social-menu a {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+            .repo-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Phần Bio -->
+        <header class="bio-header">
+            <h1>Xin chào, tôi là [Tên của bạn]</h1>
+            <p>Nhà phát triển & người sáng tạo. Dưới đây là các dự án và mạng xã hội của tôi.</p>
+            
+            <!-- Menu mạng xã hội -->
+            <div class="social-menu">
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </header>
+
+        <!-- Repository section -->
+        <section>
+            <div class="repos-title">
+                <i class="fas fa-code-branch"></i>
+                <span>Repository nổi bật</span>
+            </div>
+
+            <div class="repo-grid">
+                <!-- Card 1: với logo dạng icon (có thể thay bằng ảnh) -->
+                <div class="repo-card">
+                    <div class="repo-logo">
+                        <i class="fab fa-js"></i> <!-- Icon JavaScript -->
+                    </div>
+                    <div class="repo-info">
+                        <div class="repo-name">vanilla-js-projects</div>
+                        <div class="repo-desc">Tổng hợp các dự án nhỏ với JavaScript thuần, từ todolist đến game đơn giản.</div>
+                    </div>
+                </div>
+
+                <!-- Card 2: với logo ảnh thật (dùng placeholder) -->
+                <div class="repo-card">
+                    <div class="repo-logo">
+                        <img src="https://via.placeholder.com/60/3b82f6/ffffff?text=React" alt="React logo">
+                    </div>
+                    <div class="repo-info">
+                        <div class="repo-name">react-dashboard</div>
+                        <div class="repo-desc">Admin dashboard hiện đại xây dựng với React, Tailwind và Recharts.</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: với logo icon -->
+                <div class="repo-card">
+                    <div class="repo-logo">
+                        <i class="fab fa-python" style="color:#3776AB;"></i>
+                    </div>
+                    <div class="repo-info">
+                        <div class="repo-name">ml-toolkit</div>
+                        <div class="repo-desc">Bộ công cụ machine learning bằng Python: preprocessing, model training và visualization.</div>
+                    </div>
+                </div>
+
+                <!-- Card 4: với logo ảnh -->
+                <div class="repo-card">
+                    <div class="repo-logo">
+                        <img src="https://via.placeholder.com/60/10b981/ffffff?text=API" alt="API logo">
+                    </div>
+                    <div class="repo-info">
+                        <div class="repo-name">express-api-boilerplate</div>
+                        <div class="repo-desc">Boilerplate cho REST API với Node.js, Express, MongoDB và JWT.</div>
+                    </div>
+                </div>
+
+                <!-- Card 5: thêm repo tùy thích -->
+                <div class="repo-card">
+                    <div class="repo-logo">
+                        <i class="fas fa-mobile-alt" style="color:#8b5cf6;"></i>
+                    </div>
+                    <div class="repo-info">
+                        <div class="repo-name">flutter-ui-kit</div>
+                        <div class="repo-desc">Bộ sưu tập các giao diện di động đẹp mắt viết bằng Flutter.</div>
+                    </div>
+                </div>
+
+                <!-- Card 6: với logo ảnh -->
+                <div class="repo-card">
+                    <div class="repo-logo">
+                        <img src="https://via.placeholder.com/60/eab308/000000?text=Go" alt="Go logo">
+                    </div>
+                    <div class="repo-info">
+                        <div class="repo-name">go-microservices</div>
+                        <div class="repo-desc">Ví dụ về microservice với Go, gRPC và Docker.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (không bắt buộc) -->
+        <footer class="footer">
+            <p>© 2025 - Bio cá nhân. Mã nguồn mở trên <a href="#" style="color:#2563eb; text-decoration:none;">GitHub</a>.</p>
+        </footer>
+    </div>
+</body>
+</html>
