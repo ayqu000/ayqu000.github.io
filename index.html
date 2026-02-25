@@ -124,11 +124,10 @@
 
         .repo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
         }
 
-        /* Card repo - chỉ logo + tên */
+        /* Card repo */
         .repo-card {
             background: white;
             border-radius: 1.25rem;
@@ -180,7 +179,7 @@
             line-height: 1.4;
         }
 
-        /* Footer nhẹ */
+        /* Footer */
         .footer {
             text-align: center;
             padding: 2rem 0 0;
@@ -195,12 +194,72 @@
             text-decoration: none;
         }
 
-        /* responsive */
-        @media (max-width: 500px) {
-            .bio h1 { font-size: 2rem; }
-            .social-links a { width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
-            .repo-card { padding: 1rem; }
-            .repo-avatar { width: 48px; height: 48px; }
+        /* ===== RESPONSIVE NÂNG CAO ===== */
+        /* Mặc định: mobile (dưới 640px) - 1 cột, avatar to hơn */
+        .repo-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .repo-avatar {
+            width: 64px;
+            height: 64px;
+        }
+
+        .repo-name {
+            font-size: 1.2rem;
+        }
+
+        /* Tablet (640px - 1024px) - 2 cột, avatar vừa */
+        @media (min-width: 640px) {
+            .repo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .repo-avatar {
+                width: 56px;
+                height: 56px;
+            }
+            .repo-name {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Laptop (1024px - 1280px) - 3 cột */
+        @media (min-width: 1024px) {
+            .repo-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* PC lớn (trên 1280px) - 4 cột */
+        @media (min-width: 1280px) {
+            .repo-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Điều chỉnh thêm cho mobile nhỏ */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            .bio h1 {
+                font-size: 2rem;
+            }
+            .bio p {
+                font-size: 1rem;
+            }
+            .social-links a {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+            .repo-card {
+                padding: 1rem;
+            }
+            .repo-avatar {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>
@@ -225,7 +284,7 @@
             </div>
         </div>
 
-        <!-- Repository GitHub nổi bật (chỉ logo + tên) -->
+        <!-- Repository GitHub -->
         <section class="repos-section">
             <div class="section-header">
                 <i class="fab fa-github"></i>
@@ -233,12 +292,42 @@
             </div>
 
             <div class="repo-grid" id="repo-grid">
-                <!-- Dữ liệu mẫu tĩnh - mỗi card là một link đến repo -->
+                <!-- Dữ liệu mẫu - thay bằng repo thật -->
                 <a href="/Poppy-Database" class="repo-card">
                     <div class="repo-avatar">
                         <img src="images/logo/poppydb.png" alt="avatar">
                     </div>
                     <div class="repo-name">Poppy Database</div>
+                </a>
+                <a href="/repo2" class="repo-card">
+                    <div class="repo-avatar">
+                        <img src="images/logo/repo2.png" alt="avatar">
+                    </div>
+                    <div class="repo-name">React Hooks Library</div>
+                </a>
+                <a href="/repo3" class="repo-card">
+                    <div class="repo-avatar">
+                        <img src="images/logo/repo3.png" alt="avatar">
+                    </div>
+                    <div class="repo-name">FastAPI Boilerplate</div>
+                </a>
+                <a href="/repo4" class="repo-card">
+                    <div class="repo-avatar">
+                        <img src="images/logo/repo4.png" alt="avatar">
+                    </div>
+                    <div class="repo-name">Tailwind Plugins</div>
+                </a>
+                <a href="/repo5" class="repo-card">
+                    <div class="repo-avatar">
+                        <img src="images/logo/repo5.png" alt="avatar">
+                    </div>
+                    <div class="repo-name">Docker Compose Examples</div>
+                </a>
+                <a href="/repo6" class="repo-card">
+                    <div class="repo-avatar">
+                        <img src="images/logo/repo6.png" alt="avatar">
+                    </div>
+                    <div class="repo-name">Vue3 Vite Starter</div>
                 </a>
             </div>
         </section>
@@ -247,37 +336,5 @@
             <p>© 2025 · <a href="#">GitHub</a> · <a href="#">Twitter</a></p>
         </footer>
     </div>
-
-    <!-- (Tuỳ chọn) Fetch dữ liệu từ GitHub API và render chỉ logo + tên 
-    <script>
-        async function fetchRepos(username) {
-            try {
-                const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-                const repos = await res.json();
-                const grid = document.getElementById('repo-grid');
-                grid.innerHTML = ''; 
-
-                repos.forEach(repo => {
-                    const avatarUrl = repo.owner.avatar_url;
-                    const card = document.createElement('a');
-                    card.href = repo.html_url;
-                    card.target = '_blank';
-                    card.className = 'repo-card';
-                    card.innerHTML = `
-                        <div class="repo-avatar">
-                            <img src="${avatarUrl}" alt="avatar">
-                        </div>
-                        <div class="repo-name">${repo.name}</div>
-                    `;
-                    grid.appendChild(card);
-                });
-            } catch (error) {
-                console.error('Lỗi khi lấy repos:', error);
-            }
-        }
-
-        // Gọi hàm với username GitHub của bạn (thay 'your-username')
-        // fetchRepos('your-username');
-    </script> -->
 </body>
 </html>
