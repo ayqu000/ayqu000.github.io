@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio | My Social & Repos</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <title>GitHub Bio · Repos & Social</title>
+    <!-- Font Awesome 6 (miễn phí) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -18,56 +17,68 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f9fafc;
-            color: #1e293b;
+            background: #f8fafc;
+            color: #0f172a;
             line-height: 1.5;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* Container chính */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
             flex: 1;
         }
 
-        /* Header / Bio */
-        .bio-header {
+        /* Bio header */
+        .bio {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
-        .bio-header h1 {
+        .bio-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-size: 2.5rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
         }
 
-        .bio-header p {
-            font-size: 1.1rem;
+        .bio h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #1e293b, #334155);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bio p {
+            font-size: 1.125rem;
             color: #475569;
             max-width: 600px;
             margin: 0 auto 1.5rem;
         }
 
-        /* Menu mạng xã hội */
-        .social-menu {
+        /* Social links menu */
+        .social-links {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1.25rem;
             flex-wrap: wrap;
-            margin-top: 1rem;
         }
 
-        .social-menu a {
+        .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -77,85 +88,91 @@
             border-radius: 50%;
             color: #334155;
             font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
             transition: all 0.2s ease;
             text-decoration: none;
         }
 
-        .social-menu a:hover {
-            background: #2563eb;
+        .social-links a:hover {
+            background: #3b82f6;
             color: white;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(37,99,235,0.2);
+            border-color: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -8px rgba(59, 130, 246, 0.4);
         }
 
-        /* Tiêu đề Repository */
-        .repos-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 2.5rem 0 1.5rem;
+        /* Repository section */
+        .repos-section {
+            margin-top: 2.5rem;
+        }
+
+        .section-header {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.75rem;
             border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.6rem;
         }
 
-        .repos-title i {
-            color: #2563eb;
+        .section-header i {
+            color: #3b82f6;
         }
 
-        /* Grid repository */
         .repo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
         /* Card repository */
         .repo-card {
             background: white;
-            border-radius: 1.2rem;
+            border-radius: 1.25rem;
             padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
             border: 1px solid #eef2f6;
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .repo-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -8px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
             border-color: #cbd5e1;
+            box-shadow: 0 20px 25px -8px rgba(0,0,0,0.1);
         }
 
-        /* Logo */
-        .repo-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 16px;
-            background: linear-gradient(145deg, #f1f5f9, #ffffff);
+        /* Logo / Avatar */
+        .repo-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: #2563eb;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            color: #3b82f6;
             flex-shrink: 0;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
 
-        .repo-logo img {
+        .repo-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 16px;
         }
 
         /* Thông tin repo */
         .repo-info {
             flex: 1;
+            min-width: 0; /* tránh tràn chữ */
         }
 
         .repo-name {
@@ -163,18 +180,40 @@
             font-size: 1.2rem;
             margin-bottom: 0.25rem;
             color: #0f172a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .repo-desc {
+        .repo-name i {
+            color: #3b82f6;
+            font-size: 0.9rem;
+            margin-left: 0.25rem;
+        }
+
+        .repo-description {
             font-size: 0.9rem;
             color: #64748b;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            margin-bottom: 0.5rem;
         }
 
-        /* Footer nhẹ */
+        .repo-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .repo-meta span i {
+            margin-right: 0.25rem;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
         .footer {
             text-align: center;
             padding: 2rem 0 0;
@@ -184,31 +223,32 @@
             margin-top: 3rem;
         }
 
-        /* Responsive nhỏ */
-        @media (max-width: 480px) {
-            .bio-header h1 {
-                font-size: 2rem;
-            }
-            .social-menu a {
-                width: 2.5rem;
-                height: 2.5rem;
-                font-size: 1.2rem;
-            }
-            .repo-card {
-                padding: 1rem;
-            }
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        /* responsive */
+        @media (max-width: 500px) {
+            .bio h1 { font-size: 2rem; }
+            .social-links a { width: 2.5rem; height: 2.5rem; font-size: 1.2rem; }
+            .repo-card { padding: 1rem; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Phần Bio -->
-        <header class="bio-header">
-            <h1>Xin chào, tôi là [Tên của bạn]</h1>
-            <p>Nhà phát triển & người sáng tạo. Dưới đây là các dự án và mạng xã hội của tôi.</p>
+        <!-- Bio -->
+        <div class="bio">
+            <div class="bio-avatar">
+                <!-- Có thể thay bằng ảnh đại diện thật -->
+                <i class="fas fa-user-astronaut"></i>
+            </div>
+            <h1>AyQu</h1>
+            <p>Developer & Creator. Đam mê xây dựng những sản phẩm mã nguồn mở hữu ích.</p>
             
-            <!-- Menu mạng xã hội -->
-            <div class="social-menu">
+            <!-- Menu mạng xã hội (có thể thay link thật) -->
+            <div class="social-links">
                 <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -216,88 +256,138 @@
                 <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-        </header>
+        </div>
 
-        <!-- Repository section -->
-        <section>
-            <div class="repos-title">
-                <i class="fas fa-code-branch"></i>
+        <!-- Repository GitHub nổi bật -->
+        <section class="repos-section">
+            <div class="section-header">
+                <i class="fab fa-github"></i>
                 <span>Repository nổi bật</span>
             </div>
 
-            <div class="repo-grid">
-                <!-- Card 1: với logo dạng icon (có thể thay bằng ảnh) -->
+            <div class="repo-grid" id="repo-grid">
+                <!-- Dữ liệu mẫu tĩnh (có thể thay bằng dữ liệu từ API) -->
                 <div class="repo-card">
-                    <div class="repo-logo">
-                        <i class="fab fa-js"></i> <!-- Icon JavaScript -->
+                    <div class="repo-avatar">
+                        <!-- Avatar của owner (có thể thay bằng ảnh thật) -->
+                        <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="avatar">
                     </div>
                     <div class="repo-info">
-                        <div class="repo-name">vanilla-js-projects</div>
-                        <div class="repo-desc">Tổng hợp các dự án nhỏ với JavaScript thuần, từ todolist đến game đơn giản.</div>
+                        <div class="repo-name">
+                            <a href="#" target="_blank" style="color:inherit; text-decoration:none;">github-pages-deploy</a>
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="repo-description">Action tự động deploy website lên GitHub Pages với các tùy chọn linh hoạt.</div>
+                        <div class="repo-meta">
+                            <span><i class="far fa-star"></i> 342</span>
+                            <span><i class="fas fa-code-branch"></i> 89</span>
+                            <span><i class="far fa-circle" style="color:#f1e05a;"></i> JavaScript</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 2: với logo ảnh thật (dùng placeholder) -->
                 <div class="repo-card">
-                    <div class="repo-logo">
-                        <img src="https://via.placeholder.com/60/3b82f6/ffffff?text=React" alt="React logo">
+                    <div class="repo-avatar">
+                        <img src="https://avatars.githubusercontent.com/u/1024025?v=4" alt="avatar">
                     </div>
                     <div class="repo-info">
-                        <div class="repo-name">react-dashboard</div>
-                        <div class="repo-desc">Admin dashboard hiện đại xây dựng với React, Tailwind và Recharts.</div>
+                        <div class="repo-name">
+                            <a href="#" target="_blank" style="color:inherit; text-decoration:none;">react-hooks-library</a>
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="repo-description">Tổng hợp các custom hooks hữu ích cho React: useLocalStorage, useDebounce, useClickOutside...</div>
+                        <div class="repo-meta">
+                            <span><i class="far fa-star"></i> 1.2k</span>
+                            <span><i class="fas fa-code-branch"></i> 234</span>
+                            <span><i class="far fa-circle" style="color:#61dafb;"></i> TypeScript</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 3: với logo icon -->
                 <div class="repo-card">
-                    <div class="repo-logo">
-                        <i class="fab fa-python" style="color:#3776AB;"></i>
+                    <div class="repo-avatar">
+                        <img src="https://avatars.githubusercontent.com/u/210414?v=4" alt="avatar">
                     </div>
                     <div class="repo-info">
-                        <div class="repo-name">ml-toolkit</div>
-                        <div class="repo-desc">Bộ công cụ machine learning bằng Python: preprocessing, model training và visualization.</div>
+                        <div class="repo-name">
+                            <a href="#" target="_blank" style="color:inherit; text-decoration:none;">fastapi-boilerplate</a>
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="repo-description">Boilerplate cho FastAPI với SQLAlchemy, JWT, Docker, và tự động tạo tài liệu.</div>
+                        <div class="repo-meta">
+                            <span><i class="far fa-star"></i> 876</span>
+                            <span><i class="fas fa-code-branch"></i> 112</span>
+                            <span><i class="far fa-circle" style="color:#3572A5;"></i> Python</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Card 4: với logo ảnh -->
                 <div class="repo-card">
-                    <div class="repo-logo">
-                        <img src="https://via.placeholder.com/60/10b981/ffffff?text=API" alt="API logo">
+                    <div class="repo-avatar">
+                        <img src="https://avatars.githubusercontent.com/u/1500684?v=4" alt="avatar">
                     </div>
                     <div class="repo-info">
-                        <div class="repo-name">express-api-boilerplate</div>
-                        <div class="repo-desc">Boilerplate cho REST API với Node.js, Express, MongoDB và JWT.</div>
-                    </div>
-                </div>
-
-                <!-- Card 5: thêm repo tùy thích -->
-                <div class="repo-card">
-                    <div class="repo-logo">
-                        <i class="fas fa-mobile-alt" style="color:#8b5cf6;"></i>
-                    </div>
-                    <div class="repo-info">
-                        <div class="repo-name">flutter-ui-kit</div>
-                        <div class="repo-desc">Bộ sưu tập các giao diện di động đẹp mắt viết bằng Flutter.</div>
-                    </div>
-                </div>
-
-                <!-- Card 6: với logo ảnh -->
-                <div class="repo-card">
-                    <div class="repo-logo">
-                        <img src="https://via.placeholder.com/60/eab308/000000?text=Go" alt="Go logo">
-                    </div>
-                    <div class="repo-info">
-                        <div class="repo-name">go-microservices</div>
-                        <div class="repo-desc">Ví dụ về microservice với Go, gRPC và Docker.</div>
+                        <div class="repo-name">
+                            <a href="#" target="_blank" style="color:inherit; text-decoration:none;">tailwindcss-plugins</a>
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="repo-description">Bộ sưu tập plugin cho Tailwind CSS: typography, forms, aspect-ratio, và nhiều tiện ích khác.</div>
+                        <div class="repo-meta">
+                            <span><i class="far fa-star"></i> 2.3k</span>
+                            <span><i class="fas fa-code-branch"></i> 415</span>
+                            <span><i class="far fa-circle" style="color:#563d7c;"></i> CSS</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Footer (không bắt buộc) -->
         <footer class="footer">
-            <p>© 2025 - Bio cá nhân. Mã nguồn mở trên <a href="#" style="color:#2563eb; text-decoration:none;">GitHub</a>.</p>
+            <p>© 2025 · <a href="#">GitHub</a> · <a href="#">Twitter</a></p>
         </footer>
     </div>
+
+    <!-- (Tuỳ chọn) JavaScript để fetch dữ liệu từ GitHub API thật 
+    <script>
+        // Ví dụ lấy repos từ GitHub API và render
+        async function fetchRepos(username) {
+            try {
+                const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+                const repos = await res.json();
+                const grid = document.getElementById('repo-grid');
+                grid.innerHTML = ''; // xoá dữ liệu mẫu
+
+                repos.forEach(repo => {
+                    // Lấy avatar từ owner (có thể dùng repo.owner.avatar_url)
+                    const avatarUrl = repo.owner.avatar_url;
+                    const card = document.createElement('div');
+                    card.className = 'repo-card';
+                    card.innerHTML = `
+                        <div class="repo-avatar">
+                            <img src="${avatarUrl}" alt="avatar">
+                        </div>
+                        <div class="repo-info">
+                            <div class="repo-name">
+                                <a href="${repo.html_url}" target="_blank" style="color:inherit; text-decoration:none;">${repo.name}</a>
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <div class="repo-description">${repo.description || 'Không có mô tả'}</div>
+                            <div class="repo-meta">
+                                <span><i class="far fa-star"></i> ${repo.stargazers_count}</span>
+                                <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+                                <span><i class="far fa-circle" style="color:#f1e05a;"></i> ${repo.language || 'N/A'}</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                console.error('Lỗi khi lấy repos:', error);
+            }
+        }
+
+        // Gọi hàm với username GitHub của bạn (thay 'your-username')
+        // fetchRepos('your-username');
+    </script> -->
 </body>
 </html>
